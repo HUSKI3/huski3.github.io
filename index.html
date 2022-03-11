@@ -75,8 +75,8 @@ body {
   <div class="console">
     Welcome to Lonk Cloud 0.1 LTS (GNU/Linux 5.16-generic x86_64) <br />
   <br />
- * NextCloud:  https://nc.lonk.cloud <br />
- * Cockpit: https://ck.lonk.cloud <br /><br />
+ * NextCloud:  <a href="https://nc.lonk.cloud">https://nc.lonk.cloud</a> <br />
+ * Cockpit: <a href="https://ck.lonk.cloud">https://ck.lonk.cloud</a> <br /><br />
 
   System information <br /><br />
     
@@ -106,7 +106,7 @@ body {
     </table>
 
   You can get this info through:
-    http://nc.lonk.cloud/ocs/v2.php/apps/serverinfo/api/v1/info?format=json<br /><br />
+    <a href="http://nc.lonk.cloud/ocs/v2.php/apps/serverinfo/api/v1/info?format=json">http://nc.lonk.cloud/ocs/v2.php/apps/serverinfo/api/v1/info?format=json</a> <br /><br />
 
 All systems ready. <br />
 0 broken cups of coffee. <br /> <br />
@@ -116,7 +116,16 @@ All systems ready. <br />
 <script>
 $(function(){
       $(".typed").typed({
-        strings: ["<p class='command'>show_info</p> <p>WIP!</p> <p class='command'> <span class='typed-cursor'>_</span></p>"],
+        strings: [`
+<p class='command'>show_info</p>
+<p>
+WIP!
+<br/>
+<a href="google.com">google</a>
+</p>
+<p class='command'> 
+...
+<span class='typed-cursor'>_</span></p>`],
         typeSpeed: 0,
         loop: false,
         showCursor: false,
