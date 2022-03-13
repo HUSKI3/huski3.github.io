@@ -75,6 +75,8 @@ body {
   <div class="console">
     Welcome to Lonk Cloud 0.1 LTS (GNU/Linux 5.16-generic x86_64) <br />
   <br />
+  [ “To follow the path, look to the master, follow the master, walk with the master, see through the master, become the master.” ]<br/>
+  <br/>
  * NextCloud:  <a href="https://nc.lonk.cloud">https://nc.lonk.cloud</a> <br />
  * Cockpit: <a href="https://ck.lonk.cloud">https://ck.lonk.cloud</a> <br /><br />
 
@@ -83,33 +85,38 @@ body {
     <table>
     <tr>
       <td>System load:</td>
-      <td>0.0</td>
+      <td id="load">0.0</td>
       <td>Processes:</td>
-      <td>80</td>
+      <td id="processes">80</td>
       </tr>
       <tr>
       <td>Usage of /:</td>
-      <td>3.1% of 48.11GB</td>
+      <td id="disk">3.1% of 48.11GB</td>
       <td>Users logged in:</td>
-        <td>1</td>
+        <td>null ;3</td>
       </tr>
       <tr>
         <td>Memory usage: </td>
-        <td>17%</td>
-        <td>IP address for eth0:</td>
-        <td></td>
+        <td id="memory">17%</td>
+        <td>Ry address:</td>
+        <td id="ip">ry:lonk.cloud</td>
+        <td>(RyBaseDNS)</td>
       </tr>
       <tr>
         <td>Swap usage:</td>
-        <td>0%</td>
+        <td id="swap">3000%</td>
+      </tr>
+      <tr>
+        <td>Broken cups of coffee:</td>
+        <td>0</td>
       </tr>
     </table>
 
   You can get this info through:
-    <a href="http://nc.lonk.cloud/ocs/v2.php/apps/serverinfo/api/v1/info?format=json">http://nc.lonk.cloud/ocs/v2.php/apps/serverinfo/api/v1/info?format=json</a> <br /><br />
+    <a href="https://stats.lonk.cloud/">https://stats.lonk.cloud/</a> <br /><br />
 
 All systems ready. <br />
-0 broken cups of coffee. <br /> <br />
+<br /> <br />
     user@lonkcloud:~$ 
     <div class="typed"></div>
   </div>
@@ -143,6 +150,23 @@ $(function(){
         }
       });
   }); 
+  $.ajax
+({
+  type: "GET",
+  url: "https://stats.lonk.cloud/",
+  dataType: 'json',
+  success: function(res)
+  {
+          $('#load').text(res.cpu);
+          $('#processes').text(res.process);
+          $('#processes').text(res.process);
+          $('#disk').text(res.disk);
+          $('#memory').text(res.mem);
+          $('#swap').text(res.swap);
+  }
+});
+ 
+
 </script>
 </body>
 </html>
