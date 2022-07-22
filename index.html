@@ -9,165 +9,96 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
 <style>
-body {
-	 background-color: black;
-	 color: white;
-	 padding: 10px;
-	 font-family: 'Roboto Mono', sans-serif;
-	 font-size: 12px;
+body,html { 
+  background: #3464a4;
+  
+  color: white;
+  font-family: monospace;
+  letter-spacing: -1px;
 }
- p {
-	 margin: 0;
+form {
+  width: 500px;
+  margin: 0 auto;  
+  padding: 0 2px 8px;
+  
+  color: #000;
+  background: #DDD;
+  box-shadow: 8px 16px #234;
 }
- p > p {
-	 display: inline;
+fieldset {  
+  height: 150px;
+  border-color: #555;
 }
- p.command:before {
-	 content: 'user@lonkcloud:~$ ';
+
+legend {
+  color: #D00;
+  margin: 0 auto;
 }
- table {
-	 width: 420px;
+legend:after {
+  content: ' | ';  
+  color: #555;  
 }
- .typed-cursor {
-	 display: inline-block;
-	 opacity: 1;
-	 -webkit-animation: blink 0.7s infinite;
-	 -moz-animation: blink 0.7s infinite;
-	 animation: blink 0.7s infinite;
+legend:before {
+  content:' | ';
+  color: #555;
 }
- @keyframes blink {
-	 0% {
-		 opacity: 1;
-	}
-	 50% {
-		 opacity: 0;
-	}
-	 100% {
-		 opacity: 1;
-	}
+
+div {
+  width: 70px;
+  margin: 0 auto;  
 }
- @-webkit-keyframes blink {
-	 0% {
-		 opacity: 1;
-	}
-	 50% {
-		 opacity: 0;
-	}
-	 100% {
-		 opacity: 1;
-	}
+
+img {
+  border: 5px solid #234;
 }
- @-moz-keyframes blink {
-	 0% {
-		 opacity: 1;
-	}
-	 50% {
-		 opacity: 0;
-	}
-	 100% {
-		 opacity: 1;
-	}
+
+button {  
+  margin: 2px 0;
+  padding: 0;
+  border: none;
+  
+  color: inherit;
+  background: none;  
+  letter-spacing: inherit;
+  font: inherit;
 }
- 
+button:focus, button:hover {
+  background: #C00;
+  color: white;
+  outline: none;
+}
+
+#about {
+  display: inline-block;
+  vertical-align: top;
+  width: 250px;
+}
 </style>
 </head>
 <body>
-  <div class="console">
-    Welcome to Lonk Cloud 0.1 LTS (GNU/Linux 5.16-generic x86_64) <br />
-  <br />
-  [ “To follow the path, look to the master, follow the master, walk with the master, see through the master, become the master.” ]<br/>
-  <br/>
- * GitHub:  <a href="https://github.com/HUSKI3">https://github.com/HUSKI3</a> <br />
- * NextCloud:  <a href="https://nc.lonk.cloud">https://nc.lonk.cloud</a> <br />
- * Cockpit: <a href="https://ck.lonk.cloud">https://ck.lonk.cloud</a> <br /><br />
+  <br>
 
-  System information <br /><br />
-    
-    <table>
-    <tr>
-      <td>System load:</td>
-      <td id="load">0.0</td>
-      <td>Processes:</td>
-      <td id="processes">80</td>
-      </tr>
-      <tr>
-      <td>Usage of /:</td>
-      <td id="disk">3.1% of 48.11GB</td>
-      <td>Users logged in:</td>
-        <td>null ;3</td>
-      </tr>
-      <tr>
-        <td>Memory usage: </td>
-        <td id="memory">17%</td>
-        <td>Ry address:</td>
-        <td id="ip">ry:lonk.cloud</td>
-        <td>(RyBaseDNS)</td>
-      </tr>
-      <tr>
-        <td>Swap usage:</td>
-        <td id="swap">3000%</td>
-      </tr>
-      <tr>
-        <td>Broken cups of coffee:</td>
-        <td>0</td>
-      </tr>
-    </table>
-
-  You can get this info through:
-    <a href="https://stats.lonk.cloud/">https://stats.lonk.cloud/</a> <br /><br />
-
-All systems ready. <br />
-<br /> <br />
-    user@lonkcloud:~$ 
-    <div class="typed"></div>
-  </div>
-<script>
-$(function(){
-      $(".typed").typed({
-        strings: [`
-<p class='command'>show_info</p>
-<p>
-> Welcome!<br/>
-<br/> <br/>
-> Projects:<br/>
-+ Lonk Cloud <br/>
-  |--> A fully tunneled system of servers and subdomains<br/>
-<br/>
-+ IgniteOS <br/>
-  |--> An operating system aimed at the most minimal footprint <br/>
-<br/>
-<a href="/">Reload</a>
-</p>
-<p class='command'> 
-...
-<span class='typed-cursor'>_</span></p>`],
-        typeSpeed: 0,
-        loop: false,
-        showCursor: false,
-        callback: function() {
-          setTimeout( function() {
-            
-          }, 2000) 
-        }
-      });
-  }); 
-  $.ajax
-({
-  type: "GET",
-  url: "https://stats.lonk.cloud/",
-  dataType: 'json',
-  success: function(res)
-  {
-          $('#load').text(res.cpu);
-          $('#processes').text(res.process);
-          $('#processes').text(res.process);
-          $('#disk').text(res.disk);
-          $('#memory').text(res.mem);
-          $('#swap').text(res.swap);
-  }
-});
- 
-
-</script>
+<form>
+ <fieldset>
+  <legend>Portfolio</legend>
+   Resources:<br>
+   <div>
+     <button>&lt;About me&gt;</button><br>
+     <button>&lt;Projects&gt;</button><br>
+     <button>&lt;Connect&gt;</button><br>
+     <button>&lt;Socials&gt;</button><br>
+     <button>&lt;LonkCloud&gt;</button>
+   </div>
+ </fieldset>
+  <fieldset>
+    <img id="pfp" src="https://media.discordapp.net/attachments/882733487927459920/979659760276242482/output-onlinepngtools1.png" width="100" height="100"></img>
+    <div id="about">
+     <button>About Me:</button>
+      <p>Hello!</p>
+      <p>Just a coder doing things that I love! </p>
+      <p>Make sure to check out my <button>&lt;Projects&gt;</button>!</p>
+   </div>
+  </fieldset>
+</form>
 </body>
 </html>
